@@ -107,6 +107,14 @@ function timeSpanToString(startDate, endDate) {
  */
 function angleBetweenClockHands(/* date */) {
   throw new Error('Not implemented');
+  // const deg = new Date(date);
+  // const mul = 30 * (Math.PI / 180);
+  // let hours = parseInt(deg.toISOString().slice(11, 13), 10);
+  // if (hours > 12) {
+  //   hours -= 12;
+  // }
+
+  // return hours * mul;
 }
 
 

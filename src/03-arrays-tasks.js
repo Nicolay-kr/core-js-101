@@ -286,13 +286,15 @@ function getSecondItems(arr) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
-  // let newArr = Array(arr.reduce((accum, item) => accum + item));
-  // arr.map((item,index) => newArr.fill(item, index + index,index + index + 1) );
-  // return newArr = arr.map((item,index) => item );
-  // let newArr = Array(arr.reduce((accum, item) => accum + item));
-  // arr.map((item,index) => newArr.splice(item,0,...[Array(index).fill(item)]))
+function propagateItemsByPositionIndex(arr) {
+  // throw new Error('Not implemented');
+  let copy = arr.slice();
+  copy = copy.map((element, index) => {
+    const newArr = new Array(index + 1);
+    newArr.fill(element, 0, index + 1);
+    return newArr;
+  });
+  return copy.flat();
 }
 
 
@@ -609,8 +611,9 @@ function group(/* rray, keySelector, valueSelector */) {
  *   [[1, 2], [3, 4], [5, 6]], (x) => x     =>   [ 1, 2, 3, 4, 5, 6 ]
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  // throw new Error('Not implemented');
+  return arr.map((i) => childrenSelector(i)).flat(1);
 }
 
 
@@ -626,8 +629,10 @@ function selectMany(/* arr, childrenSelector */) {
  *   ['one','two','three'], [2]       => 'three'  (arr[2])
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
-function getElementByIndexes(/* arr, indexes */) {
-  throw new Error('Not implemented');
+function getElementByIndexes(arr, indexes) {
+  // throw new Error('Not implemented');
+  const copy = arr.flat(indexes.length);
+  return copy[indexes.pop()];
 }
 
 

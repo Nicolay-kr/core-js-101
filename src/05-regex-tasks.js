@@ -55,8 +55,8 @@ function getRegexForGuid() {
  *
  */
 function getRegexForPitSpot() {
-  throw new Error('Not implemented');
-  // return /\b((?! pt|Pot|peat|part)([A-Za-z]+))\b/;
+  // throw new Error('Not implemented');
+  return /p.t/;
 }
 
 
