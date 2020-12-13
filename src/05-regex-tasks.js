@@ -32,7 +32,8 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
-  throw new Error('Not implemented');
+  // throw new Error('Not implemented');
+  return /{[0-9AaBbCcDdFfE]{8}-[0-9AaBbCcDdFfE]{4}-[0-9AaBbCcDdFfE]{4}-[0-9AaBbCcDdFfE]{4}-[0-9AaBbCcDdFfE]{12}}/;
 }
 
 
@@ -55,6 +56,7 @@ function getRegexForGuid() {
  */
 function getRegexForPitSpot() {
   throw new Error('Not implemented');
+  // return /\b((?! pt|Pot|peat|part)([A-Za-z]+))\b/;
 }
 
 

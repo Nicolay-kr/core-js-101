@@ -494,8 +494,13 @@ function sortCitiesArray(arr) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  // throw new Error('Not implemented');
+  const arr = [...Array(n).fill(0).map(() => Array(n).fill(0))];
+  return arr.map((item, index) => {
+    arr[index][index] = 1;
+    return item;
+  });
 }
 
 /**
@@ -511,8 +516,18 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  // throw new Error('Not implemented');
+  const el = end - start + 1;
+  const arr = [...Array(el).fill(0)];
+  arr[0] = start;
+  return arr.map((item, index) => {
+    if (index > 0) {
+      arr.splice(index, 0, arr[index - 1] + 1);
+      return arr[index - 1] + 1;
+    }
+    return item;
+  });
 }
 
 /**
@@ -526,8 +541,9 @@ function getIntervalArray(/* start, end */) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  // throw new Error('Not implemented');
+  return Array.from(new Set(arr));
 }
 
 /**
@@ -560,8 +576,23 @@ function distinct(/* arr */) {
  *    "Poland" => ["Lodz"]
  *   }
  */
-function group(/* array, keySelector, valueSelector */) {
+function group(/* rray, keySelector, valueSelector */) {
   throw new Error('Not implemented');
+  // const Map = new Map();
+  // array.map((item) =>{
+  //   Map.set(item.keySelector) = [];
+  //   Map.get(item.keySelector).push(item.valueSelector);
+  //   return item
+  // })
+  // array.map((keySelector).map((item) => {
+  //   Map.set(item, []);
+  //   return item;
+  // }));
+  // array.map((item) => {
+  //   Map.set(item,[])
+  //   return item;
+  // }))
+  // return Map;
 }
 
 
